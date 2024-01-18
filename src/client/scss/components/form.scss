@@ -1,0 +1,148 @@
+form {
+  max-width: 420px;
+  padding: 15px 20px;
+  margin: 0 auto 40px;
+  div {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    label {
+      width: 90%;
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: block;
+    }
+    input,
+    textarea {
+      width: 90%;
+      padding: 10px 15px;
+      color: $color;
+      font-size: 15px;
+      font-weight: 600;
+      border: 1px solid $light-sky;
+      border-radius: 5px;
+      outline: none;
+      background-color: $light-sky;
+      transition: outline 0.15s ease-in;
+      &::placeholder {
+        color: rgba($color: #111111, $alpha: 0.5);
+      }
+      &:focus,
+      &:hover {
+        outline: 2px solid $sky;
+      }
+    }
+    textarea {
+      font-size: 13px;
+    }
+    span {
+      width: 90%;
+      font-size: 13px;
+      color: #d32f2f;
+    }
+  }
+}
+@media (max-width: 375px) {
+  form {
+    input,
+    textarea {
+      &::placeholder {
+        font-size: 12px;
+      }
+    }
+  }
+}
+.form__address-wrap {
+  input {
+    margin-bottom: 8px;
+  }
+  .form__zipcode,
+  .form__address {
+    background-color: #cccccc;
+  }
+  .form__find-zipcode {
+    background-color: $sky;
+    &:hover,
+    &:focus {
+      cursor: pointer;
+    }
+  }
+}
+
+.form__watchlist {
+  color: black;
+}
+
+.form__change-pwd {
+  max-width: 380px;
+  padding: 15px 20px;
+  margin: 30px auto 0;
+  display: block;
+  text-align: center;
+  background-color: #fb8f98;
+  color: #d32f2f;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 5px;
+  &:hover,
+  &:focus {
+    outline: 2px solid #d32f2f;
+  }
+}
+
+.form__checkbox {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  & > label {
+    max-width: 380px;
+    padding: 0 20px;
+  }
+  ul {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+    li {
+      width: 110px;
+      height: 20px;
+      margin-bottom: 20px;
+      display: flex;
+      flex-direction: row;
+    }
+    input[type='checkbox'] {
+      width: 20px;
+      height: 20px;
+    }
+    input[type='checkbox']:checked + label {
+      color: #4347fa;
+      text-decoration: underline;
+    }
+    label {
+      width: 65px;
+      margin-right: 20px;
+    }
+  }
+}
+
+.form__submit {
+  cursor: pointer;
+  transition: background 0.15s ease-in;
+  &:hover,
+  &:focus {
+    outline: none;
+    background-color: #b3e5fc;
+  }
+}
+
+.form__container {
+  margin-top: 5px;
+}

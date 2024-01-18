@@ -1,0 +1,34 @@
+extends ../templates/layout
+
+block content
+  form(method='POST').form__login
+    div
+      label(for='uid') 아이디
+      input(name='uid' id='uid' type='text' placeholder='아이디' required)
+      span=uidErrorMsg
+    div
+      label(for='password') 비밀번호
+      input(name='password' id='password' type='password' placeholder='비밀번호' required)
+      span=passwordErrorMsg
+    div
+      input(type='submit' value='로그인').form__submit
+  div.login__footer
+    span 계정이 없으신가요?
+    a(href='/join') 지금 회원가입하기 &rarr;
+  hr
+  ul.social-login__box
+    li
+      a(href='/users/kakao/login')
+        div.social-login__kakao
+          img(src='/assets/img/kakao_logo.png')
+          span 카카오 로그인
+    li
+      a(href='/users/google/login')
+        div.social-login__google
+          img(src='/assets/img/google_logo.png')
+          span 구글 로그인
+    li
+      a(href='/users/naver/login')
+        div.social-login__naver
+          img(src='/assets/img/naver_logo.png')
+          span 네이버 로그인

@@ -1,0 +1,60 @@
+extends ../templates/layout
+
+block content
+  form(method='POST' enctype='multipart/form-data')
+    div
+      label(for='name') 이름*
+      input(name='name' id='name' type='text' placeholder='카페 이름' value=cafe.name required)
+      span=nameErrorMsg
+    div
+      label(for='description') 설명*
+      textarea(name='description' id='description' type='text' placeholder='카페 설명' value=cafe.description cols='40' rows='5' required)
+      span=descriptionErrorMsg
+    div.form__address-wrap
+      label 주소*
+      input(name='zipcode' type='text' placeholder='우편번호' readonly).form__zipcode
+      input(type='button' value='우편번호 찾기').form__find-zipcode
+      input(name='location' type='text' placeholder='주소' value=cafe.location readonly).form__address
+      input(name='detailedAddress' type='text' placeholder='상세 주소').form__detailed-address
+    div.form__checkbox
+      label(for='themes') 테마*
+      ul
+        li
+          input(type='checkbox' name='theme' value='SF' id='sf')
+          label(for='sf') SF
+        li
+          input(type='checkbox' name='theme' value='공포' id='horror')
+          label(for='horror') 공포
+        li
+          input(type='checkbox' name='theme' value='스릴러' id='thriller')
+          label(for='thriller') 스릴러
+        li
+          input(type='checkbox' name='theme' value='스토리' id='story')
+          label(for='story') 스토리
+        li
+          input(type='checkbox' name='theme' value='장치' id='device')
+          label(for='device') 장치
+        li
+          input(type='checkbox' name='theme' value='추리' id='reasoning')
+          label(for='reasoning') 추리
+        li
+          input(type='checkbox' name='theme' value='코미디' id='comedy')
+          label(for='comedy') 코미디
+        li
+          input(type='checkbox' name='theme' value='판타지' id='fantasy')
+          label(for='fantasy') 판타지
+      span=themeErrorMsg
+    div
+      label(for='level') 난이도* (1 ~ 5점)
+      input(name='level' id='level' type='number' value=cafe.meta.level placeholder='점수가 높을수록 어려운 난이도입니다.)' required)
+      span=levelErrorMsg
+
+    hr
+    div
+      label(for='background') 카페 배경
+      input(name='background' id='background' type='file' accept='image/*')
+    div
+      input(type='submit' value='내용 수정하기').form__submit
+block script
+  script(src='//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js')
+  script(src='/dist/js/address.js')

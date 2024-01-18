@@ -1,0 +1,53 @@
+// Config
+@import './config/reset';
+@import './config/_variable';
+
+// Components
+@import './components/header.scss';
+@import './components/form.scss';
+@import './components/footer.scss';
+@import './components/profile-cafe.scss';
+@import './components/theme.scss';
+@import './components/profile.scss';
+@import './components/cafe-detail.scss';
+@import './components/comment.scss';
+@import './components/cafe.scss';
+@import './components/score-area.scss';
+@import './components/condition.scss';
+@import './components/interest-cafe.scss';
+
+// Screens
+@import './screens/home.scss';
+@import './screens/search.scss';
+@import './screens/search-map.scss';
+@import './screens/login.scss';
+@import './screens/social-Login.scss';
+@import './screens/theme-modal.scss';
+@import './screens/404.scss';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+    Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: $bg;
+  height: 100vh;
+  #root {
+    height: auto;
+  }
+}
+
+a {
+  color: $color;
+  text-decoration: none;
+}
+
+.hidden {
+  display: none;
+}
+
+.show {
+  display: flex;
+}

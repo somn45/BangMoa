@@ -1,0 +1,43 @@
+extends ../templates/layout
+include ../mixins/theme
+include ../mixins/comment
+
+block content
+  section.detail__container(data-cafeId=cafe._id)
+    if(cafe.imageUrl)
+      img(src=`${cafe.imageUrl}` alt=cafe.name width=400 height=400)
+    else
+      img(src="/assets/img/cafe_default.jpg" alt="디폴트 이미지")
+    h2=cafe.name
+    div.detail__registrant
+      p 등록한 분 : 
+      a(href=`/users/${cafe.owner._id}`) #{cafe.owner.username}
+    div.detail__themes
+      each theme in cafe.theme
+        +theme(theme)
+    p.detail__description=cafe.description
+    div.detail__btns
+      if(loggedUser)
+        if String(cafe.owner._id) === String(loggedUser._id)
+          a(href=`/cafes/${cafe._id}/edit`) 내용 수정하기
+          a(href=`/cafes/${cafe._id}/delete`) 삭제하기
+    
+    hr
+    include ../templates/cafe-map
+    div.detail__recommended-box
+      button#recommendButton
+        i.fas.fa-heart
+        span 추천
+    
+    form.detail__form.show#commentForm
+      include ../mixins/scoreArea
+      span
+      textarea(cols="30" rows="5" placeholder="방탈출 카페의 후기, 댓글을 입력해주세요")
+      button 등록
+    ul.detail__comments
+      each comment in comments.reverse()
+        +comment(comment)
+        
+block script
+  script(type='text/javascript' src=`//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.KAKAO_JAVASCRIPT_KEY}&libraries=clusterer,services,drawing`)
+  script(src='/dist/js/cafeDetail.js')
