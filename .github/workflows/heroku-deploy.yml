@@ -22,4 +22,3 @@ jobs:
           heroku_api_key: ${{secrets.HEROKU_API_KEY}}
           heroku_app_name: 'bangmoa'
           heroku_email: 'somn45@gmail.com'
-          procfile: 'web: node ./build/index.js'
