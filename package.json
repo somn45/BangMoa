@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon build/index.js",
-    "start": "node src/index.js",
+    "start": "node dist/index.js",
     "stop": "pm2 stop index",
-    "build:server": "babel src -d build",
+    "build:server": "babel src -d dist",
     "build:client": "npx webpack --mode=production",
     "dev:server": "nodemon",
     "dev:client": "npx webpack --mode=development -w"
