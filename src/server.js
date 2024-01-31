@@ -15,6 +15,7 @@ import { sessionMiddleware } from './middlewares/sessionMiddleware';
 
 const COOKIE_EXPIRY_TIME = 1000 * 60 * 60 * 24 * 7;
 
+// server
 const app = express();
 
 app.set('view engine', 'pug');
