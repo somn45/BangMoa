@@ -11,7 +11,7 @@
     "build:client": "npx webpack --mode=production",
     "dev:server": "nodemon",
     "dev:client": "npx webpack --mode=development -w",
-    "heroku-postbuild": "npm run build:server"
+    "heroku-postbuild": "npm run build:server && npm run build:client"
   },
   "repository": {
     "type": "git",
