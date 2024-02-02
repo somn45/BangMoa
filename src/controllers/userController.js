@@ -23,8 +23,8 @@ export const postJoin = async (req, res) => {
     location,
     watchlist,
   } = req.body;
-  const avatarUrl = req.file ? req.file.path : '';
-
+  const avatarUrl = req.file ? req.file.location : '';
+  console.log('아바타 이미지', req.file);
   // 중복된 유저 ID인지 확인
   const uidExists = await User.exists({ uid });
   if (uidExists) {

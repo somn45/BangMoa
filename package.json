@@ -9,7 +9,7 @@
     "stop": "pm2 stop index",
     "build:server": "babel src -d build",
     "build:client": "npx webpack --mode=production",
-    "dev:server": "nodemon",
+    "dev:server": "babel-node src/index.js",
     "dev:client": "npx webpack --mode=development -w",
     "heroku-postbuild": "npm run build:server && npm run build:client"
   },
