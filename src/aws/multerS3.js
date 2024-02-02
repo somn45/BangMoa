@@ -13,7 +13,7 @@ const awsUpload = multer({
   storage: multerS3({
     s3: s3,
     bucket: 'bangmoa-storage',
-    ACL: 'public-read',
+    acl: 'public-read',
     key: function (req, file, cb) {
       cb(null, `${Date.now()}_${path.basename(file.originalname)}`);
     },
