@@ -78,7 +78,8 @@ export const startGoogleLogin = (req, res) => {
   const baseUrl = 'https://accounts.google.com/o/oauth2/v2/auth';
   const urlConfig = {
     client_id: process.env.GOOGLE_CLIENT_ID,
-    redirect_uri: 'https://bangba.site/users/google/oauth',
+    redirect_uri:
+      'https://bangmoa-2429d292bb86.herokuapp.com/users/google/oauth',
     response_type: 'code',
     scope:
       'https://www.googleapis.com/auth/userinfo.email openid https://www.googleapis.com/auth/userinfo.profile',
@@ -97,7 +98,8 @@ export const finishGoogleLogin = async (req, res) => {
     client_secret: process.env.GOOGLE_CLIENT_SECRET,
     code,
     grant_type: 'authorization_code',
-    redirect_uri: 'https://bangba.site/users/google/oauth',
+    redirect_uri:
+      'https://bangmoa-2429d292bb86.herokuapp.com/users/google/oauth',
   };
   const finalUrl = combineUrlAndParams(baseUrl, urlConfig);
   const tokenRequest = await (
@@ -143,7 +145,8 @@ export const startNaverLogin = (req, res) => {
   const urlConfig = {
     response_type: 'code',
     client_id: process.env.NAVER_CLIENT_ID,
-    redirect_uri: 'https://bangba.site/users/naver/oauth',
+    redirect_uri:
+      'https://bangmoa-2429d292bb86.herokuapp.com/users/naver/oauth',
     state: process.env.NAVER_STATE,
   };
   const finalUrl = combineUrlAndParams(baseUrl, urlConfig);
