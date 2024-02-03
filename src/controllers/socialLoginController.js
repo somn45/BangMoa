@@ -22,7 +22,7 @@ export const finishKakaoLogin = async (req, res) => {
   const urlConfig = {
     grant_type: 'authorization_code',
     client_id: process.env.KAKAO_CLIENT_ID,
-    redirect_uri: 'https://bangba.site/users/kakao/oauth',
+    redirect_uri: 'https://bangmoa-2429d292bb86.herokuapp.com/users/kakao/oauth',
     code,
   };
   const finalUrl = combineUrlAndParams(baseUrl, urlConfig);
